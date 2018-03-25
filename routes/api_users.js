@@ -46,7 +46,7 @@ router.delete('/:uID', function(req, res, next) {
 
 /* Handle GET requests to looking an Usuario referenced by ID. */
 router.get('/:uID', function(req, res, next) {
-  res.json({total: 0, data : [{}], info : "Ok recibiendo el parametro ID con valor " + req.params.id});
+  res.json(req.usuario);
 });
 
 /* middleware & trigger event to catch uID */
