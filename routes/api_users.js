@@ -35,7 +35,7 @@ router.put('/:uID', function(req, res, next) {
   });
 });
 
-/* Handle post request to create Usuario's model. */
+/* Handle delete requests to remove an Usuario's model from database. */
 router.delete('/:uID', function(req, res, next) {
   req.usuario.remove(function(err){
   	if (err) return next(err);
