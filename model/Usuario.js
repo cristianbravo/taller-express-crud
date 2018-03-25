@@ -10,7 +10,7 @@ var UsuarioSchema = new Schema({
 UsuarioSchema.method('update', function(updates, callback){
 	Object.assign(this, updates, { updatedAt : new Date() });
 
-	this.parent().save(callback);
+	this.save(callback);
 });
 
 var Usuario = mongoose.model('Usuario', UsuarioSchema);
