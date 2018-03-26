@@ -51,8 +51,14 @@ router.get('/:uID', function(req, res, next) {
 
 /* middleware & trigger event to catch uID */
 router.param('uID', function(req, res, next, id){
+  if (!id.match(/^[0-9a-fA-F]{24}$/)) {      
+    err = new Error('ID de documento no válido :$');
+    err.status = 404;
+    return next(err);
+  }
+
 	UsuarioModel.findById(id, function(err, doc){
-		if (err) return next(err);
+		if (err) return next(err);    
 
 		if (!doc){
 			err = new Error('Documento no encontrado :(');
